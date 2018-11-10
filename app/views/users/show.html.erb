@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <body>
- <nav class="blue lighten-2">
+ <nav class="green accent-2">
   <div class="nav-wrapper">
     <a href="/" class="brand-logo">miniblog</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -18,6 +18,9 @@
 </nav>
 
 <div class="row">
+<div class="name-header" >
+<span class="name"><%= @nickname %>'s page</span>
+</div>
  <div class="col s12 m6">
   <div class="card cyan darken-3">
    <% @tweets.each do |tweet| %>

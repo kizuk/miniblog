@@ -1,4 +1,24 @@
-.col {
+.row .col {
 	background-color: #e0f7fa;
-	margin: 20px;
+	float: none;
+	margin: 0 auto;
+	margin-left: 100px;
+}
+
+nav.pagination {
+	background-color: #006064;
+}
+
+.name-header {
+	height: 100px;
+	width: 80%;
+	background-color: #b9f6ca;
+	margin: 0 auto;
+}
+
+span.name {
+	font-size: 30px;
+	color: #ffffff;
+	text-align: center;
+    padding: 10px;
 }
