@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 	def show
 	 user = User.find(params[:id])
 	 @nickname = user.nickname
-	 @tweets = Tweet.where(user_id: params[:user_id]).page(params[:page]).per(5).order('created_at DESC')
+	 @tweets = Tweet.where(params[:user_id]).order('created_at DESC').page(params[:page]).per(5)
     end
 
 end

@@ -3,7 +3,7 @@
 <body>
  <nav class="blue lighten-2">
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo">miniblog</a>
+    <a href="/" class="brand-logo">miniblog</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
     <% if user_signed_in? %>
       <li><a href="/tweets/new">投稿する</a></li>
@@ -20,16 +20,20 @@
 <div class="row">
  <div class="col s12 m6">
   <div class="card cyan darken-3">
- <!--    <% @tweets.each do |tweet| %> -->
+   <% @tweets.each do |tweet| %>
    <div class="card-content white-text">
-    <a href="/users/<%= tweet.user_id %>"><span class="card-title"><!-- <%= tweet.user.nickname %> --></span></a>
+    <span class="card-title"><%= tweet.user.nickname %></span>
     <div class="content-post">
-<!--      <%= simple_format(tweet.text) %> -->
+     <%= tweet.text %>
     </div>
    </div>
    <div class="card-action cyan lighten-5">
+    <% if user_signed_in? && current_user.id == tweet.user_id %>
+    <%= link_to '編集', "/tweets/#{tweet.id}", method: :get %>
+    <%= link_to '削除',"/tweets/#{tweet.id}", method: :delete %>
+    <% end %>
    </div>
-<!--    <% end %> -->
+   <% end %>
   </div>
   <%= paginate(@tweets) %>
  </div>
